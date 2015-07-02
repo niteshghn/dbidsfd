@@ -1,0 +1,69 @@
+<div class="page page-footable">
+
+    <!-- page content -->
+    <div class="pagecontent">
+        <!-- upper part -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <a class="btn btn-ef btn-large btn-ef-1 btn-ef-1f mb-10" ui-sref="app.user.add" >Add a User</a>
+                <section class="tile">
+                    <!-- tile body -->
+                    <div class="tile-body">
+
+                        <div class="form-group">
+                            <label for="filter" style="padding-top: 5px">Find a user:</label>
+                            <input placeholder="search" id="filter" type="text" class="form-control input w-xxl mb-10 inline-block"/>
+                        </div>
+
+                        <table id="searchTextResults" ui-jq="footable" data-filter="#filter" data-page-size="5" class="footable table table-custom">
+                            <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>User Level</th>
+                                <th data-hide='phone'>Last Login</th>
+                                <th data-hide="phone">Gender</th>
+                                <th data-hide='phone'>Location</th>
+                                <th data-hide='phone'>Member Since</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr ng-repeat="user in regusers | filter:searchText" my-directive>
+                                <td>{{user.name}}</td>
+                                <td>{{user.userlevel}}</td>
+                                <td>{{user.lastlogin}}</td>
+                                <td>{{user.gender}}</td>
+                                <td>{{user.location}}</td>
+                                <td>{{user.start}}</td>
+                            </tr>
+                            </tbody>
+                            <tfoot class="hide-if-no-paging">
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <ul class="pagination"></ul>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                    <!-- /tile body -->
+
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- upper part fixed-->
+
+    <!--lower tabbed part -->
+    <!--
+        <div class="row">
+            <div ui-view=""></div>
+        </div>-->
+    <!-- lower tabbed part end -->
+
+
+</div>
+
